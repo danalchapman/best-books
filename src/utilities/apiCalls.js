@@ -1,7 +1,7 @@
 const API_KEY = process.env.REACT_APP_API_KEY
 
 export const getData = () => {
-    const url = ` https://api.nytimes.com/svc/books/v3/lists.json?api-key=${API_KEY}`
+    const url = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${API_KEY}`
     const options = {
         method: 'GET',
         headers: {
