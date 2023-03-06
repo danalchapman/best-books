@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
-import { getData } from '../utilities/apiCalls'
+import { getData } from '../../utilities/apiCalls'
+import './App.css'
 
 export const App = () => {
 
@@ -9,9 +10,9 @@ export const App = () => {
   })
 
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
+    <main className='main-app'>
+      <h1>Best Books</h1>
+    </main>
   )
 }
 
