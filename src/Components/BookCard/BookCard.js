@@ -1,5 +1,7 @@
-export const BookCard = ({ title }) => {
+import './BookCard.css'
+
+export const BookCard = () => {
     return (
-        <p>{title}</p>
+        <p className='title'></p>
     )
 }

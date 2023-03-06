@@ -1,21 +1,32 @@
-import { BookCard } from '../BookCard/BookCard'
+// import { BookCard } from '../BookCard/BookCard'
+import React, { useState, useEffect } from "react"
+import { useSelector } from "react-redux"
+import { getData } from '../../utilities/apiCalls'
+ 
+export const BooksBox = () => {
 
-export const BooksBox = ({ books }) => {
+    const [books, setBooks] = useState([])
 
-    const displayCards = () => {
-        return books.map(book => {
-            return (
-                <BookCard 
-                    key={ book.title }
-                    title={ book.title }
-                />
-            )
-        })
-    }
+    useEffect(() => {
+        getData()
+            .then(data => setBooks(data.results.books))
+    }, [])
+
+    const filterBy = useSelector(
+        (state) => state.bookFilter.filter
+    )
 
     return (
         <section>
-            { displayCards() }
+            { books
+                .filter((book) => 
+                    filterBy ? book.title.includes(filterBy) : true 
+                )
+                .map((book) => (
+                    <div key={book.title}>
+                        {book.title}
+                    </div>
+                ))}
         </section>
     )
 }
