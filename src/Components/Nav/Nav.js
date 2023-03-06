@@ -15,7 +15,7 @@ export const Nav = () => {
             <input
                 onChange={(e) => dispatch(setFilter(e.target.value))}
                 value={filter}
-                placeholder='Filter by Title'
+                placeholder='Filter by Title (All Caps)'
             ></input>
         </nav>
     )
